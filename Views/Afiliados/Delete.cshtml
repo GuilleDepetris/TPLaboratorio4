@@ -1,0 +1,55 @@
+﻿@model TrabajoFinal_Laboratorio4.Models.Afiliado
+<link href="~/css/detailsAndDelete.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estás seguro de que quieres eliminar el Afiliado?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            <p>Nombre</p>
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nombres)
+        </dd>
+        <dt class = "col-sm-2">
+            <p>Apellido</p>
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.apellido)
+        </dd>
+        <dt class = "col-sm-2">
+            <p>DNI</p>
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dni)
+        </dd>
+        <dt class = "col-sm-2">
+            <p>Fecha Nacimiento</p>
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fechaNacimiento)
+        </dd>
+        <dd class = "col-sm-10">
+            @if (!String.IsNullOrEmpty(@Model.foto))
+            {
+                <img src="~/imagenes/afiliados/@Model.foto" asp-append-version="true"
+                     style="position: absolute; top: 270px; right: 420px;width: 140px; height:140px" />
+            }
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" style="color: white; margin-bottom: 15px !important" /> |
+        <a asp-action="Index">Volver a la lista</a>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
+<script src="~/js//preview.js"></script>

@@ -1,0 +1,43 @@
+﻿@model TrabajoFinal_Laboratorio4.Models.TicketDetalle
+<link href="~/css/createAndEdit.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Detalle Ticket</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="descripcionPedido" class="control-label">Descripción para el Pedido</label>
+                <input asp-for="descripcionPedido" class="form-control" />
+                <span asp-validation-for="descripcionPedido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="estadoId" class="control-label">Estado</label>
+                <select asp-for="estadoId" class="form-control" asp-items="ViewBag.estadoId"></select>
+                <span asp-validation-for="estadoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ticketId" class="control-label">Seleccione Ticket</label>
+                <select asp-for="ticketId" class="form-control" asp-items="ViewBag.ticketId"></select>
+                <span asp-validation-for="ticketId" class="text-danger"></span>
+            </div>
+            <div class="form-group divBtn">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

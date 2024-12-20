@@ -1,0 +1,105 @@
+﻿@model TrabajoFinal_Laboratorio4.Models.TicketDetalle
+
+<link href="~/css/detailsAndDelete.css" rel="stylesheet" />
+
+
+@{
+    ViewData["Title"] = "Detalles del Ticket";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Información del Ticket</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <p>Descripción del Pedido</p>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.descripcionPedido)
+        </dd>
+        <dt class="col-sm-2">
+            <p>Estado</p>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.estado.descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            <p>Fecha</p>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.fechaEstado)
+        </dd>
+        <dt class="col-sm-2">
+            <p>Nombre Ticket</p>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ticket.observacion)
+        </dd>
+    </dl>
+</div>
+
+<div class="containerAfiliado">
+    <h4>Afiliado que realizó el pedido</h4>
+    <div class="infoAfiliado">
+        @if (Model.ticket?.afiliado != null)
+        {
+            var afiliado = Model.ticket.afiliado;
+            @if (!string.IsNullOrEmpty(afiliado.foto))
+            {
+                <img src="@Url.Content("~/imagenes/afiliados/" + afiliado.foto)" alt="Foto de @afiliado.apellido" style="width:200px; height:auto;" />
+            }
+            <p>@afiliado.nombres @afiliado.apellido</p>
+        }
+        else
+        {
+            <p>No hay información del afiliado disponible.</p>
+        }
+    </div>
+</div>
+
+<div class="containerTicketsAfiliado">
+    <h4>Todos los Tickets del Afiliado</h4>
+    @if (ViewBag.TicketsDelAfiliado != null && ((List<Ticket>)ViewBag.TicketsDelAfiliado).Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Observación</th>
+                    <th>Fecha de Solicitud</th>
+                    <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ticket in (List<Ticket>)ViewBag.TicketsDelAfiliado)
+                {
+                    <tr>
+                        <td>@ticket.observacion</td>
+                        <td>@ticket.fechaSolicitud.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            @if (ticket.TicketDetalle != null)
+                            {
+                                <a asp-controller="TicketDetalles" asp-action="Details" asp-route-id="@ticket.TicketDetalle.Id">Ver Detalles</a>
+                            }
+                            else
+                            {
+                                <span>No hay detalles disponibles</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay tickets disponibles para este afiliado.</p>
+    }
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+

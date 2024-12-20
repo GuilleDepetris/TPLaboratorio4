@@ -1,0 +1,79 @@
+﻿@model TrabajoFinal_Laboratorio4.ViewsModels.TicketsViewModel
+
+<link href="~/css/afiliados.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tickets</h1>
+
+<div class="divCreateTk">
+    <a asp-action="Create" class="btnCrearTk">Crear Ticket</a>
+</div>
+
+
+<form asp-action="Index" method="get">
+    <p>
+        Apellido Afiliado:
+        <select class="selectAfiliados" name="afiliadoId" asp-items="ViewBag.Afiliados">
+                            <option value="">Todos</option>
+                          </select>
+        Ticket: <input type="text" name="observacionTicket" value="@Model.ObservacionTicket" />
+       
+        <input type="submit" value="Filtrar" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Apellido</p>
+            </th>
+            <th>
+                <p>Fecha Solicitud</p>
+            </th>
+            <th>
+                <p>Observación</p>
+            </th>
+            <th>
+                <p>Opciones</p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tickets) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.afiliado.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaSolicitud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.observacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<!-- Controles de paginación -->
+<div class="pagination">
+    @if (Model.TotalTickets > 5) // Cambia esto si ajustas el tamaño de página
+    {
+        for (int i = 1; i <= (Model.TotalTickets + 4) / 5; i++) // Calcula el total de páginas
+        {
+            <a asp-action="Index" asp-route-afiliadoId="@Model.AfiliadoId" asp-route-observacionTicket="@Model.ObservacionTicket" asp-route-paginaActual="@i">@i</a>
+            @if (i < (Model.TotalTickets + 4) / 5)
+            {
+                <span>   </span>
+            }
+        }
+    }
+</div>

@@ -1,0 +1,164 @@
+/*Estilos afiliados*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+th {
+    background-color: #007bff;
+    color: black;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/*a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}*/
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    margin: 0 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+    .pagination a {
+        margin: 0 5px;
+        padding: 5px 10px;
+        border: 1px solid #007bff;
+        border-radius: 4px;
+        color: #007bff;
+    }
+
+        .pagination a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+.divCreateAf {
+    width: 100%;
+    text-align: center;
+}
+
+    .divCreateAf .btnCrearAf {
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+p {
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+td a {
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+td {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div a {
+    text-decoration: none;
+}
+
+
+/*Estados*/
+.titulo-descripcion {
+    color: black;
+}
+.divCreateEs, .divCreateTk, .divAgregarDet {
+    width: 100%;
+    text-align: center;
+}
+.divCreateEs .btnCrearEs {
+    text-decoration: none;
+    font-size: 18px;
+}
+.divCreateTk .btnCrearTk {
+    text-decoration: none;
+    font-size: 18px;
+}
+.selectAfiliados {
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.selectAfiliados:hover {
+    border-color: #888; 
+}
+.selectAfiliados option {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+}
+.divAgregarDet .btnAgregarDet {
+    text-decoration: none;
+    font-size: 18px;
+}
+.mover {
+    margin-left: 100px;
+}

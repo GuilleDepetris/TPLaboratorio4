@@ -1,0 +1,144 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h4 {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Contenedor principal */
+.containerAfiliado, .containerTicketsAfiliado {
+    margin: 20px auto;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Información del ticket */
+dl.row {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+dt, dd {
+    margin: 5px 0;
+}
+
+    dt p {
+        font-weight: bold;
+        margin: 0;
+    }
+
+dd {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Imagen del afiliado */
+img {
+    display: block;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+.infoAfiliado {
+    display: flex;
+    justify-content: space-evenly;
+}
+.infoAfiliado p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 45px;
+}
+
+/* Tabla de tickets */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .table th, .table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+    .table th {
+        background-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+/* Links y botones */
+a, .btn {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+}
+.btn {
+    color: white;
+}
+
+    a:hover, .btn:hover {
+        color: #0056b3;
+        text-decoration: none !important;
+    }
+
+    a[asp-action="Edit"], a[asp-action="Index"] {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        margin-right: 15px;
+    }
+
+        a[asp-action="Edit"]:hover, a[asp-action="Index"]:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+/* Mensajes y elementos vacíos */
+p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+    text-align: center;
+}
+
+/* Alineación de secciones */
+h4 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+    text-align: left;
+}
+
+/* Espacios entre secciones */
+div + div {
+    margin-top: 20px;
+}
+
+

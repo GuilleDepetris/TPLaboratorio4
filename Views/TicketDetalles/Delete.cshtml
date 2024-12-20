@@ -1,0 +1,47 @@
+﻿@model TrabajoFinal_Laboratorio4.Models.TicketDetalle
+<link href="~/css/detailsAndDelete.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estás seguro de que quieres eliminar el pedido?</h3>
+
+<div>
+    <h4>Detalle del Ticket</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            <p>Descripción</p>
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.descripcionPedido)
+        </dd>
+        <dt class = "col-sm-2">
+            <p>Estado</p>
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.estado.descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            <p>Fecha</p>
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fechaEstado)
+        </dd>
+        <dt class = "col-sm-2">
+            <p>Nombre Ticket</p>
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ticket.observacion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" style="color: white; margin-bottom: 15px !important" /> |
+        <a asp-action="Index">Volver a la lista</a>
+    </form>
+</div>

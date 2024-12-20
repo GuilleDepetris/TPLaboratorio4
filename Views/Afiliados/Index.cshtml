@@ -1,0 +1,97 @@
+﻿@model TrabajoFinal_Laboratorio4.ViewsModels.AfiliadosViewModel
+
+<link href="~/css/afiliados.css" rel="stylesheet"/>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Afiliados</h1>
+
+<div class="divCreateAf">
+    <a  class="btnCrearAf" asp-action="Create" style="text-decoration:none">Crear Afiliado</a>
+</div>
+
+<form asp-action="Index" method="get">
+    <p>
+        Nombre: <input type="text" name="busquedaNombre" asp-for="@Model.Nombres"/>
+        Apellido: <input type="text" name="busquedaApellido" asp-for="@Model.Apellido" />
+        Dni:  <input type="number" name="busquedaDni" asp-for="@Model.Dni" />
+        <input type="submit" value="Filtrar" /> 
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Nombre</p>
+            </th>
+            <th>
+               <p>Apellido</p>
+            </th>
+            <th>
+                <p>DNI</p>
+            </th>
+            <th>
+                <p>Fecha de Nacimiento</p>
+            </th>
+            <th>
+                <p>Fotografia</p>
+            </th>
+            <th>
+                <p>Opciones</p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Afiliados) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dni)
+            </td>
+            <td>
+                @item.fechaNacimiento.ToString("dd/MM/yyyy")
+            </td>
+             <td>
+                @if (!String.IsNullOrEmpty(item.foto))
+                {
+                        <img src="~/imagenes/afiliados/@item.foto" asp-append-version="true" id="imagen"
+                             style="max-height:60px; max-width:60px;" />
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<!-- Controles de paginación -->
+<div class="pagination">
+    @if (Model.TotalPaginas > 1)
+    {
+        for (int i = 1; i <= Model.TotalPaginas; i++)
+        {
+            <a asp-action="Index" asp-route-busquedaNombre="@Model.Nombres" asp-route-busquedaApellido="@Model.Apellido" asp-route-busquedaDni="@Model.Dni" asp-route-paginaActual="@i">@i</a>
+            @if (i < Model.TotalPaginas)
+            {
+                <span>  </span>
+            }
+        }
+    }
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
+<script src="~/js//preview.js"></script>

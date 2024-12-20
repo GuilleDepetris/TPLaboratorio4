@@ -1,0 +1,241 @@
+h2 {
+    text-align: center;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaciado entre tarjetas */
+    justify-content: center; /* Centrar las tarjetas */
+}
+
+.card {
+    background: #fff; /* Fondo blanco */
+    border: 1px solid #ccc; /* Borde ligero */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 200px; /* Ancho fijo para las tarjetas */
+    overflow: hidden; /* Ocultar contenido desbordante */
+    transition: transform 0.2s; /* Transición suave al pasar el ratón */
+}
+
+    .card:hover {
+        transform: scale(1.05); /* Aumentar ligeramente al pasar el ratón */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+.card-header {
+    padding: 10px; /* Espaciado interno */
+    text-align: center; /* Centrar la imagen */
+}
+
+.card-img {
+    width: 150px; /* Imagen ocupa todo el ancho */
+    height: 150px; /* Mantener la relación de aspecto */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
+    object-fit:cover;
+}
+
+.card-body {
+    padding: 15px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+}
+
+.btn {
+    display: inline-block; /* Mostrar como un bloque en línea */
+    padding: 10px 15px; /* Espaciado interno del botón */
+    background: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    transition: background 0.3s; /* Transición suave */
+}
+
+.btn:hover {
+    background: #0056b3; /* Color de fondo al pasar el ratón */
+}
+/*Estilos afiliados*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/*a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}*/
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    margin: 0 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+     background-color: #0056b3;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    color: #007bff;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.divCreateAf {
+    width: 100%;
+    text-align:center;
+}
+
+.divCreateAf .btnCrearAf {
+    text-decoration: none;
+    font-size: 18px;
+}
+p {
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+td a {
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+td {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+div a {
+    text-decoration: none;
+}
+
+/*Afiliados create*/
+
+.tituloCrearAf {
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+}
+
+.divContenedorAf {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.divContenedorAfSeg {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label.control-label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    border: none;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Ticket>
+<link href="~/css/style.css" rel="stylesheet" />
+<h2>Tickets Pendientes de Resolución</h2>
+<div class="card-container">
+     @if (!Model.Any())
+    {
+        <p>No hay tickets pendientes de resolución.</p>
+    }
+    else
+    {
+        @foreach (var ticket in Model)
+        {
+        <div class="card">
+            <div class="card-header">
+                @if (!string.IsNullOrEmpty(ticket.afiliado.foto))
+                {
+                    <img src="@Url.Content("~/imagenes/afiliados/" + ticket.afiliado.foto)" alt="Foto de @ticket.afiliado.apellido" class="card-img" />
+                }
+            </div>
+            <div class="card-body">
+                <h3>@ticket.afiliado.nombres @ticket.afiliado.apellido</h3>
+                <p>Fecha de Solicitud: @ticket.fechaSolicitud.ToString("dd/MM/yyyy")</p>
+                <a class="btn" asp-controller="TicketDetalles" asp-action="Details" asp-route-id="@ticket.TicketDetalle.Id">Ver Detalles</a>
+            </div>
+        </div>
+        }
+    }
+</div>

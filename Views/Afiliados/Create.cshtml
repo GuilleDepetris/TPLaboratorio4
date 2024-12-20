@@ -1,0 +1,66 @@
+﻿@model TrabajoFinal_Laboratorio4.Models.Afiliado
+<link href="~/css/createAndEdit.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="tituloCrearAf">Crear Afiliado</h1>
+
+<hr />
+<div class="divContenedorAf">
+    <div class="divContenedorAfSeg">
+        <form asp-action="Create" enctype="multipart/form-data" class="formCreateAf">
+            <div asp-validation-summary="ModelOnly" class="text-dangerCreate"></div>
+            <div class="form-group-create">
+                <label asp-for="nombres" class="control-label-create">Nombre</label><br />
+                <input asp-for="nombres" class="form-control-create" />
+                <span asp-validation-for="nombres" class="text-dangerCreate"></span>
+            </div>
+            <div class="form-group-create">
+                <label asp-for="apellido" class="control-label-create">Apellido</label><br />
+                <input asp-for="apellido" class="form-control-create" />
+                <span asp-validation-for="apellido" class="text-dangerCreate"></span>
+            </div>
+            <div class="form-group-create">
+                <label asp-for="dni" class="control-label-create">DNI</label><br />
+                <input asp-for="dni" class="form-control-create" />
+                <span asp-validation-for="dni" class="text-dangerCreate"></span>
+            </div>
+            <div class="form-group-create">
+                <label asp-for="fechaNacimiento" class="control-label-create">Fecha de Nacimiento</label> <br />
+                <input asp-for="fechaNacimiento" type="date" class="form-control-create" />
+                <span asp-validation-for="fechaNacimiento" class="text-dangerCreate"></span>
+            </div>
+            <div class="form-group-create">
+                <img id="imagen" asp-append-version="true" style="max-height:60px; max-width:60px;" /> <br />
+                <label class="control-label-create">Selecione fotografia</label>
+                <input type="file" name="foto" id="foto" accept="image/*" />
+            </div>
+            <div class="form-group-create divBtn">
+                <input type="submit" value="Crear" class="btn btn-primary-create" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<form asp-action="Importar" enctype="multipart/form-data" class="formImportar">
+    <div class="divImportAf">
+        <label class="control-label-create">Selecione Archivo CSV/TXT para importar afiliados</label><br />
+        <input type="file" name="importar" id="importar" class="importAf"/>
+    </div>
+    <div class="divImportAf">
+        <input type="submit" value="Importar" class="btn btn-primary-af" />
+    </div>
+</form>
+
+<div class="volverListAf">
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
+<script src="~/js//preview.js"></script>

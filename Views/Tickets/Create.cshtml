@@ -1,0 +1,37 @@
+﻿@model TrabajoFinal_Laboratorio4.Models.Ticket
+<link href="~/css/createAndEdit.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear Ticket</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="afiliadoId" class="control-label">Afiliado</label>
+                <select asp-for="afiliadoId" class ="form-control" asp-items="ViewBag.afiliadoId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="observacion" class="control-label">Nombre del Ticket</label>
+                <input asp-for="observacion" class="form-control" />
+                <span asp-validation-for="observacion" class="text-danger"></span>
+            </div>
+            <div class="form-group divBtn">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
